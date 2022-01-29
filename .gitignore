@@ -30,7 +30,6 @@ lib/
 external/
 Backup/
 log/
-evaluate/
 data/bvh/
 data/bvh/gen
 data/bvh/hdm05/
