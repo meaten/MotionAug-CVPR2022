@@ -1,0 +1,36 @@
+from yacs.config import CfgNode as CN
+
+_C = CN()
+
+_C.SEED = 12345
+
+_C.INPUT = CN()
+_C.INPUT.NUM_JOINT = 16
+_C.INPUT.TYPE = ["angle", "vel"]
+_C.INPUT.REP = "expmap"
+
+_C.MODEL = CN()
+_C.MODEL.TYPE = "mlp" # "mlp"
+
+_C.MODEL.NUM_HIDDEN = 4
+#_C.MODEL.DIM_HIDDEN = 1024
+_C.MODEL.DIM_HIDDEN = 512
+#_C.MODEL.DIM_HIDDEN_FACT = 1 / 2
+_C.MODEL.DIM_HIDDEN_FACT = 1 
+_C.MODEL.P_DROPOUT = 0.1
+_C.MODEL.PRED_LOSS = "mse" #"mse", "l1"
+_C.MODEL.REG_TYPE = "l1" #"l1", "l2"
+_C.MODEL.REG_WEIGHT = 0.0001
+#_C.MODEL.REG_WEIGHT = 0.0
+
+
+_C.SOLVER = CN()
+_C.SOLVER.NUM_WORKERS = 4
+_C.SOLVER.OPTIMIZER = "radam"  #"sgd", "radam"
+_C.SOLVER.LR = 1e-2
+_C.SOLVER.BATCH_SIZE = 4096
+_C.SOLVER.ITER = 1000
+_C.SOLVER.DECAY_FACTOR = 0.1
+_C.SOLVER.VAL_STEP = 5
+
+_C.OUTPUT_DIR = "./output/"
