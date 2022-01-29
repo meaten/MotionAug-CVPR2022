@@ -1,0 +1,34 @@
+--scene imitate
+
+--num_update_substeps 10
+--num_sim_substeps 2
+--world_scale 4
+
+--terrain_file data/terrain/plane.txt
+
+--bvh data/bvh/output/HDM_bk_punchRFront1Reps_010_120_aligned.bvh
+--build_bvh true
+--start_from_beginning true
+--write_bvh true
+--outpath bvh_gen/
+
+--char_types general
+#--character_files data/characters/humanoid3d.txt
+--character_files data/bvh/character.txt
+--enable_char_soft_contact false
+#--fall_contact_bodies 0 1 2 3 4 5 7 8 9 10 11 13 14 15
+
+--char_ctrls ct_pd
+#--char_ctrl_files data/controllers/humanoid3d_ctrl.txt
+--char_ctrl_files data/bvh/ctrl.txt
+#--motion_file data/motions/humanoid3d_kick.txt
+--motion_file data/bvh/motion.txt
+--sync_char_root_pos true
+--sync_char_root_rot false
+
+--agent_files data/agents/ct_agent_humanoid_ppo.txt
+--train_agents false
+
+#--output_path output
+#--int_output_path output/intermediate
+

@@ -1,0 +1,46 @@
+--scene strike_res
+
+--time_lim_min 100.0
+--time_lim_max 100.0
+--time_lim_exp 0.2
+--time_end_lim_min 4
+--time_end_lim_max 4
+--time_end_lim_exp 10
+--anneal_samples 32000000
+
+--num_update_substeps 10
+--num_sim_substeps 2
+--world_scale 4
+
+--terrain_file data/terrain/plane.txt
+
+--build_from_bvh true
+--char_types general
+--character_files data/bvh/character.txt
+--enable_char_soft_contact false
+--fall_contact_bodies 0 1 2 3 4 5 7 8 9 10 11 13 14 15
+--char_ctrls ct_pd_res
+--char_ctrl_files data/bvh/ctrl.txt
+--agent_files data/agents/ct_agent_humanoid_ppo.txt
+--motion_file data/bvh/motion.txt
+--sync_char_root_pos true
+--sync_char_root_rot false
+
+--write_bvh true
+#--cam_track_mode fixed
+--hold_end_frame 0.0
+--early_termination false
+
+--mode imitate
+
+--end_effector -1
+
+--bvh data/bvh/hdm05_aligned/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
+#--model_files models/style/final/pretrain_HDM_bd_kickRFront1Reps_001_120_aligned_2layers_resforce/agent0_model.ckpt
+--output_path models/default
+
+--train_agents false
+
+--reward_threshold -1
+--record_kin true
+--aug_num 10

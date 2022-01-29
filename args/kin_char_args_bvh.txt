@@ -1,0 +1,10 @@
+--scene kin_char
+
+--build_from_bvh true
+--output_path data/bvh/test
+
+--character_file data/bvh/test/character.txt
+--motion_file data/bvh/test/motion.txt
+--bvh data/bvh/hdm05_aligned/HDM_bk_punchRFront1Reps_010_120_aligned.bvh
+--keyframe -1
+--end_effector -1

@@ -1,0 +1,10 @@
+--default_params_file ./args/default.txt
+
+--mode VAE
+
+--class punch
+--subject all
+#--sampler_arg_file motionAE/args/lstmVAE_adversarial_split.txt
+--sampler_arg_file motionAE/args/lstmVAE_adversarial_cluster.txt
+
+--output_path models/VAE_punch

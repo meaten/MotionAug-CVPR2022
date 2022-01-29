@@ -1,0 +1,33 @@
+--architecture lstmVAE_adversarial
+
+--class kick
+--subject all
+
+--num_epochs 20000
+--batch_size 128
+
+--learning_rate 0.005
+--decay_factor 0.5
+--decay_interval 2000
+
+#--window_size 100
+--window_size -1
+--dim_z 128
+
+--w_quat_reg 0.01
+--smooth_coef 0.001
+--KL_coef 0.01
+--length_coef 0.01
+--KL_tolerance 1.0
+--sampling_method clustering-interpolate
+
+--data_path /home/maeda/univ/interaction/data/
+--dataset motionAE/dataset/dataset_ortho6d_rel_rp_rr_mirror_split.npz
+--output_path ./motionAE/results
+--fps 30
+
+--residual false
+--use_geodesic false
+--use_DTW false
+
+--training true

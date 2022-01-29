@@ -1,0 +1,16 @@
+--default_params_file ./args/default.txt
+
+--mode IK
+
+--enable_strike_reward false
+--reward_type 2
+--time_factor_pow 1.0
+--scale_goal_reward 4
+
+--end_effector 6
+--goal_shape Fixed
+
+--bvh data/bvh/hdm05_aligned/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
+--output_path models/IK
+
+#--train_agents false

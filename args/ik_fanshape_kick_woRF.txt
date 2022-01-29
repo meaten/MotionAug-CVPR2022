@@ -1,0 +1,21 @@
+--default_params_file ./args/default.txt
+
+--mode IK
+
+--enable_strike_reward false
+--reward_type 2
+--time_factor_pow 1.0
+--scale_goal_reward 4
+
+--resforce_type zero
+
+--end_effector 6
+--sample_shape FanShape
+--sample_param_plus 1.2 1.2 0.785 0.1 # R, H, Phi, T
+--sample_param_minus 0.8 0.8 -0.785 -0.1
+--windowtime 0.4
+
+--bvh data/bvh/hdm05_aligned/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
+--output_path models/IK_kick
+
+#--train_agents false

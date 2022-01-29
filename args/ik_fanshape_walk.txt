@@ -1,0 +1,19 @@
+--default_params_file ./args/default.txt
+
+--mode IK
+
+--enable_strike_reward false
+--reward_type 2
+--time_factor_pow 1.0
+--scale_goal_reward 4
+
+--end_effector 6 12
+--sample_shape FanShape
+--sample_param_plus 2.0 1.0 0.3 0.1 # R, H, Phi, T
+--sample_param_minus 0.5 1.0 -0.3 -0.1
+--windowtime 0.4
+
+--bvh data/bvh/hdm05_aligned/HDM_bd_walk4StepsLstart_001_120_aligned_mirror.bvh
+--output_path models/IK_walk
+
+#--train_agents false

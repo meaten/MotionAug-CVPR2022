@@ -1,0 +1,10 @@
+--default_params_file ./args/default.txt
+
+--mode VAE
+
+--class sneak
+--subject all
+#--sampler_arg_file motionAE/args/lstmVAE_adversarial_ik_kin_split_kick.txt
+--sampler_arg_file motionAE/args/lstmVAE_adversarial_cluster.txt
+
+--output_path models/VAE_kick
