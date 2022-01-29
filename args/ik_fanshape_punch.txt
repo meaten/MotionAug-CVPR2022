@@ -13,7 +13,7 @@
 --sample_param_minus 0.5 1.0 -1.7 -0.1
 --windowtime 0.4
 
---bvh data/bvh/hdm05_aligned/HDM_bd_walk4StepsLstart_001_120_aligned_mirror.bvh
+--bvh data/bvh/hdm05_aligned_split/HDM_bd_walk4StepsLstart_001_120_aligned_mirror.bvh
 --output_path models/IK_punch
 
 #--train_agents false

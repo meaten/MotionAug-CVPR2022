@@ -13,7 +13,7 @@
 --sample_param_minus 0.8 0.8 -0.785 -0.1
 --windowtime 0.4
 
---bvh data/bvh/hdm05_aligned/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
+--bvh data/bvh/hdm05_aligned_split/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
 --output_path models/IK_kick
 
 #--train_agents false

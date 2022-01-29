@@ -1,16 +1,27 @@
 import os
 import itertools
 import subprocess
+import argparse
 
-timeout = 60 * 60 * 24 * 2
-# timeout = 30
-num_workers = 10
-num_thread = 60
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--act_class', type=str)
+    parser.add_argument('--num_threads', type=int)
+    return parser.parse_args()
+
+
+timeout = 60 * 60 * 24 * 3
+
+args = parse_args()
+num_thread = args.num_threads
+cla = args.act_class
+
+subject = ["bd", "bk", "dg", "tr", "mm"]
+subject.sort()
+
+num_workers = int(num_thread / len(subject))
 
 resforcetype = "rootPD_weight_1"
-
-cla = "throw"
-
 base_cmd = ["python3", "mpi_run.py",
             "--arg_file", f"args/VAE_sampling_{cla}.txt",
             "--class", cla,
@@ -19,8 +30,8 @@ base_cmd = ["python3", "mpi_run.py",
 
 timeout_opt = ["--timeout", str(timeout)]
 
-subject = ["bd", "bk", "dg", "tr", "mm"]
-subject.sort()
+
+
 
 opts = []
 for s in itertools.combinations(subject, 4):

@@ -76,9 +76,10 @@ class motionVAETrainer(motionAETrainer):
         #self.sample_from_latent()
         #self.plot_pdf()
         #self.plot_mean()
-        self.comp_sampling()
+        #self.comp_sampling()
         #self.calc_MMD()
         #self.calc_MMD(test_set=True)
+        pass
 
     def sample(self, batch_size=20, gpu=True):
         z_sample = self.sample_z(batch_size)

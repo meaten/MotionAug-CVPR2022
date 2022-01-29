@@ -6,35 +6,11 @@ base_cmds = [["python3", "main.py"], ["python3", "main_eval.py"]]
 #base_cmds = [["python3", "main_eval.py"]]
 gpu = str(0)
 
-"""
+
 aug_mode = ["NOAUG", "NOISE", 
-            "VAE", "VAE_PHYSICAL", "VAE_OFFSET_NN", "VAE_PHYSICAL_OFFSET_NN",
-            "IK", "IK_PHYSICAL", "IK_OFFSET_NN", "IK_PHYSICAL_OFFSET_NN",
-            "VAE_IK", "VAE_IK_PHYSICAL", "VAE_IK_OFFSET_NN", "VAE_IK_PHYSICAL_OFFSET_NN"]
-"""
-aug_mode = ["NOAUG", "NOISE",
-            "VAE_IK_cluster", "VAE_IK_PHYSICAL", "VAE_IK_PHYSICAL_OFFSET_NN"]
-aug_mode = ["VAE_IK_cluster"]
-#aug_mode = ["NOAUG", "NOISE", "VAE_cluster", "IK", "VAE_IK_cluster"]
-#aug_mode = ["VAE_IK", "VAE_PHYSICAL", "IK_PHYSICAL", "VAE_IK_PHYSICAL"]
-
-#aug_mode = ["VAE", "VAE_IK"]
-#aug_mode = ["VAE_PHYSICAL","VAE_IK_PHYSICAL"]
-#aug_mode = ["NOAUG", "IK", "IK_PHYSICAL", "IK_PHYSICAL_OFFSET"]
-#aug_mode = [
-#    "VAE_PHYSICAL", "VAE_PHYSICAL_OFFSET_NN",
-#    "IK_PHYSICAL", "IK_PHYSICAL_OFFSET_NN",
-#    "VAE_IK_PHYSICAL", "VAE_IK_PHYSICAL_OFFSET_NN"]
-
-#aug_mode = ["VAE_IK_PHYSICAL_cluster_OFFSET_NN"]
-"""
-aug_mode  = ["VAE_cluster", "VAE_IK_cluster", 
-             "VAE_PHYSICAL_cluster", "VAE_IK_PHYSICAL_cluster",
-             "VAE_PHYSICAL_cluster_OFFSET_NN", "VAE_IK_PHYSICAL_cluster_OFFSET_NN"]
-aug_mode  = ["VAE_IK_cluster", 
-             "VAE_PHYSICAL_cluster", "VAE_IK_PHYSICAL_cluster",
-             "VAE_PHYSICAL_cluster_OFFSET_NN", "VAE_IK_PHYSICAL_cluster_OFFSET_NN"]
-"""
+            "VAE", "VAE_PHYSICAL",  "VAE_PHYSICAL_OFFSET_NN",
+            "IK", "IK_PHYSICAL", "IK_PHYSICAL_OFFSET_NN",
+            "VAE_IK", "VAE_IK_PHYSICAL",  "VAE_IK_PHYSICAL_OFFSET_NN"]
 
 #actions = ["kick"]
 #actions = ["punch"]
@@ -78,8 +54,7 @@ for base, m, a, aug, s in itertools.product(base_cmds, model_types, actions, aug
                   "--reward_thres",
                   str(0.7),
                   "--model_type",
-                  m,
-                  "--load_tuned"]
+                  m]
     cmds.append(cmd)
 
 for idx in range(0, len(cmds), parallel):

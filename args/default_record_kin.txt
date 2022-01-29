@@ -35,7 +35,7 @@
 
 --end_effector -1
 
---bvh data/bvh/hdm05_aligned/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
+--bvh data/bvh/hdm05_aligned_split/HDM_bd_kickRFront1Reps_001_120_aligned.bvh
 #--model_files models/style/final/pretrain_HDM_bd_kickRFront1Reps_001_120_aligned_2layers_resforce/agent0_model.ckpt
 --output_path models/default
 

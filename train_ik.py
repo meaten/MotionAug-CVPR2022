@@ -1,13 +1,23 @@
 import os
 import subprocess
+import argparse
 
-timeout = 60 * 60 * 3
-#timeout = 30
-num_workers = 5
-num_thread = 30
+def parse_args():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--act_class', type=str)
+    parser.add_argument('--num_threads', type=int, default=5)
+    parser.add_argument('--num_workers', type=int, default=30)
+    args = parser.parse_args()
 
+    return args
+
+timeout = 60 * 60 * 8
 bvh_dir = "data/bvh/hdm05_aligned_split/"
-keyword = "grab"
+
+args = parse_args()
+num_workers = args.num_workers
+num_thread = args.num_threads
+keyword = args.act_class
 
 base_cmd = ["python3", "mpi_run.py",
             "--arg_file", f"args/ik_fanshape_{keyword}.txt",
