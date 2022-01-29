@@ -2,13 +2,13 @@ BIN=Main
 OBJ_DIR = objs
 MKDIR = mkdir -p
 
-EIGEN_DIR = /home/maeda/univ/interaction/lib/eigen
-BULLET_INC_DIR = /home/maeda/univ/interaction/lib/bullet3-2.87/src
+EIGEN_DIR = "YOUR EIGEN ROOT DIR"
+BULLET_INC_DIR = "YOUR BULLET ROOT DIR/src"
 
-PYTHON_INC = /home/maeda/univ/interaction/dmenv/include/python3.6m
-PYTHON_LIB = /home/maeda/univ/interaction/dmenv/lib/python3.6
+PYTHON_INC = "YOUR PYTHON ROOT/include/python3.6m"
+PYTHON_LIB = "YOUR PYTHON ROOT/lib/python3.6"
 
-NUMPY_INC = /home/maeda/univ/interaction/dmenv/lib/python3.6/site-packages/numpy/core/include
+NUMPY_INC = "YOUR PYTHON ROOT/lib/python3.6/site-packages/numpy/core/include"
 
 INC = -I./ \
 	-I$(EIGEN_DIR) \
