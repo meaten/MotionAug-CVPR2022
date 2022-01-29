@@ -16,7 +16,7 @@ glew
 swig
 MPI
 ```
-For ```BulletPhysics``` installation, do not forget the option ```USE_DOUBLE_PRECISION=OFF```.
+For ```BulletPhysics``` installation, do not forget the option ```USE_DOUBLE_PRECISION=OFF```.  
 Please edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
 
@@ -38,7 +38,7 @@ bash prepare_data.sh
 This command will unzip, align Left/Right, split HDM05 motion dataset, convert Npz format.
 
 # Augmentation
-Currently, we support following action classes
+Currently, we support following action classes  
 kick, punch, walk, jog, sneak, grab, deposit, throw
 
 - IK **without** motion correction
@@ -76,14 +76,14 @@ python debias.py --debiaser_type NN --phys_data_npz ../dataset/dataset_Fixed_phy
 python debias.py --debiaser_type NN --phys_data_npz ../dataset/dataset_Fixed_phys_{act_class}.npz --aug_data_npz ../dataset/dataset_IK_phys_{act_class}.npz --act_class {act_class}
 ```
 # Evaluation
-So far, we prepared following augmentation options
-NOAUG, NOISE
-VAE, IK, VAE_IK
-VAE_PHYSICAL, IK_PHYSICAL, VAE_IK_PHYSICAL
-VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN
+So far, we prepared following augmentation options  
+NOAUG, NOISE  
+VAE, IK, VAE_IK  
+VAE_PHYSICAL, IK_PHYSICAL, VAE_IK_PHYSICAL  
+VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN  
 
-You can choose human motion prediction models from [RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr).
-RNN: seq2seq, GCN: GCN, Transformer: transformer
+You can choose human motion prediction models from [RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr).  
+RNN: seq2seq, GCN: GCN, Transformer: transformer  
 
 please edit **aug_mode**, **actions**, **model_types** in ```evaluate/LearnTrajDep/run_train.py```.
 ```
