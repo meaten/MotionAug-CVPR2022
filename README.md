@@ -6,7 +6,7 @@ python3.6.9
 ```
 
 # Dependencies
-- please refer to [DeepMimic_repo](https://github.com/xbpeng/DeepMimic) to install followings
+- Refer to [DeepMimic_repo](https://github.com/xbpeng/DeepMimic) to install followings
 ```
 BulletPhysics
 Eigen
@@ -17,16 +17,16 @@ swig
 MPI
 ```
 For ```BulletPhysics``` installation, do not forget the option ```USE_DOUBLE_PRECISION=OFF```.  
-Please edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
+Edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
 
-- Compile the simulation environment
+- To compile the simulation environment
 ```
 cd DeepMimicCore
 make python -j8
 ```
 
-- Python environment
+- To create Python environment
 ```
 pip install -r requirements.txt
 ```
