@@ -29,7 +29,7 @@ opts = []
 for file in os.listdir(bvh_dir):
     if ".bvh" in file and keyword in file:
         bvhpath = os.path.join(bvh_dir, file)
-        outpath = os.path.join("models", "cvpr2022", "ikaug_" + keyword, file[:-4])
+        outpath = os.path.join("models", "ikaug_" + keyword, file[:-4])
         opt = ["--bvh", bvhpath, "--output_path", outpath]
         
         model_path = os.path.join(outpath, "agent0_model.ckpt")

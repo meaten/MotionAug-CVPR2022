@@ -35,7 +35,7 @@ timeout_opt = ["--timeout", str(timeout)]
 
 opts = []
 for s in itertools.combinations(subject, 4):
-    outpath = os.path.join("models", "3dv", f"vaeaug_{cla}_cluster", resforcetype + "_" + "_".join(s))
+    outpath = os.path.join("models", f"vaeaug_{cla}", resforcetype + "_" + "_".join(s))
     opt = ["--subject"] + list(s) + ["--output_path", outpath]
     
     model_path = os.path.join(outpath, "agent0_model.ckpt")

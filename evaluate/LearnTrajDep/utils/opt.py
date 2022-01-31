@@ -19,7 +19,7 @@ class Options:
         self.parser.add_argument('--data_dir', type=str, default='/home/wei/Downloads/h3.6m/dataset/', help='path to H36M dataset')
         self.parser.add_argument('--data_dir_3dpw', type=str, default='/home/wei/Downloads/3DPW/sequenceFiles/', help='path to 3DPW dataset')
         self.parser.add_argument('--data_dir_cmu', type=str, default='/home/wei/Downloads/cmu_mocap/', help='path to CMU dataset')
-        self.parser.add_argument('--data_dir_hdm05', default='evaluate/dataset/', type=str)
+        self.parser.add_argument('--data_dir_hdm05', default='../dataset/', type=str)
         self.parser.add_argument('--aug_mode', type=AugMode.from_string, choices=list(AugMode), default=list(AugMode)[0])
         self.parser.add_argument('--test_subj', type=str, default='tr', choices=['bd', 'bk', 'dg', 'mm', 'tr'])
         self.parser.add_argument('--exp', type=str, default='test', help='ID of experiment')

@@ -19,7 +19,7 @@ def parse_args():
 
 def cmd_bvh_kin(args):
     cmds = []
-    output_path = f"models/3dv/{args.aug}_{args.act_class}_cluster"
+    output_path = f"models/{args.aug}_{args.act_class}_cluster"
     
     base_cmd = ["python3", "mpi_run.py",
                 "--default_params_file", "args/default_record_kin.txt",
@@ -52,37 +52,6 @@ def cmd_bvh_kin(args):
                 bvh_arg = ["--bvh", os.path.join(dirpath, file)]
                 cmd = base_cmd + bvh_arg
                 cmds.append(cmd)
-
-    elif "VAE_comp" in aug:
-        base_cmd.remove(output_path)
-        base_cmd.remove("--output_path")
-        base_cmd += ["--arg_file", f"args/VAE_sampling_{args.act_class}.txt",
-                     "--class", args.act_class,
-                     "--aug_num", str(1000),
-                     "--train_agents", "false"]
-        
-        subject = ["bd", "bk", "dg", "mm", "tr"]
-        subject.sort()
-
-        cfgs = ['./motionAE/args/cvpr/GAN.txt',
-                 './motionAE/args/cvpr/lstmVAE.txt',
-                 './motionAE/args/cvpr/lstmVAE_adversarial_frame.txt',
-                 './motionAE/args/cvpr/lstmVAE_adversarial_sequence.txt',
-                 './motionAE/args/cvpr/lstmVAE_sns.txt']
-                 
-        cfgs = ['./motionAE/args/cvpr/lstmVAE_sns.txt', './motionAE/args/cvpr/lstmVAE_adversarial.txt', './motionAE/args/cvpr/lstmVAE_adversarial_sns.txt']
-        
-        output_path = dict()
-        for s in itertools.combinations(subject, 4):
-            for c in cfgs:
-                subj_arg = ["--subject"] + list(s)
-                conf_arg = ["--sampler_arg_file"] + [c]
-                path = f"./models/3dv/{args.aug}/{os.path.basename(c)}"
-                out_arg = ["--output_path", path]
-                cmd = base_cmd + subj_arg + conf_arg + out_arg
-                cmds.append(cmd)
-
-                output_path[c] = path
                 
     elif "VAE" in aug:
         base_cmd += ["--arg_file", f"args/VAE_sampling_{args.act_class}.txt",
@@ -106,7 +75,7 @@ def cmd_bvh_kin(args):
 
 def cmd_bvh_phys(args):
     cmds = []
-    output_path = f"models/3dv/{args.aug}_{args.act_class}"
+    output_path = f"models/{args.aug}_{args.act_class}"
     
     base_cmd = ["python3", "mpi_run.py",
                 "--output_path", output_path,
@@ -117,9 +86,7 @@ def cmd_bvh_phys(args):
     if "Fixed" in aug:
         base_cmd += ["--aug_num", str(1), "--goal_shape", "Fixed"]
 
-        dirpath = f"models/cvpr2022/ikaug_{args.act_class}/"
-        if args.act_class in ["walk"]:
-            dirpath = f"models/re_ikaug_{args.act_class}/"
+        dirpath = f"models/ikaug_{args.act_class}/"
         argfile = "args.txt"
         filelist = os.listdir(dirpath)
 
@@ -133,9 +100,7 @@ def cmd_bvh_phys(args):
     elif "IK" in aug:
         base_cmd += ["--aug_num", str(10)]
         
-        dirpath = f"models/cvpr2022/ikaug_{args.act_class}/"
-        if args.act_class in ["walk"]:
-            dirpath = f"models/re_ikaug_{args.act_class}/"
+        dirpath = f"models/ikaug_{args.act_class}/"
         argfile = "args.txt"
         filelist = os.listdir(dirpath)
         
@@ -149,7 +114,7 @@ def cmd_bvh_phys(args):
     elif "VAE" in aug:
         base_cmd += ["--aug_num", str(1000)]
         
-        dirpath = f"models/3dv/vaeaug_{args.act_class}_cluster/"
+        dirpath = f"models/vaeaug_{args.act_class}/"
         argfile = "args.txt"
         filelist = os.listdir(dirpath)
         cmds = []
@@ -216,7 +181,6 @@ def para_cmd_exec(cmds, args):
     my_env = os.environ.copy()
     my_env["PYTHONPATH"] = "./"
     
-    #parallel = args.parallel if not args.aug == "IK_kin" else 1
     parallel = args.parallel
     
     for i in range(0, len(cmds), parallel):

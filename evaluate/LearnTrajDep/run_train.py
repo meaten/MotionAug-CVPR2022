@@ -3,8 +3,6 @@ import subprocess
 
 
 base_cmds = [["python3", "main.py"], ["python3", "main_eval.py"]]
-#base_cmds = [["python3", "main_eval.py"]]
-gpu = str(0)
 
 
 aug_mode = ["NOAUG", "NOISE", 
@@ -27,8 +25,8 @@ subject = ["bd", "bk", "dg", "mm", "tr"]
 subject.sort()
 
 parallel = 5
-
 batch_size = str(64)
+gpu = str(0)
 
 cmds = []
 for base, m, a, aug, s in itertools.product(base_cmds, model_types, actions, aug_mode, subject):

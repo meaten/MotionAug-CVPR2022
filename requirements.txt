@@ -16,3 +16,8 @@ tensorflow-tensorboard==1.5.1
 torch==1.6.0
 tqdm==4.50.2
 tb-nightly
+gdown
+torch_optimizer
+yacs
+progress
+pandas
