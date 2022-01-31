@@ -80,7 +80,8 @@ So far, we prepared following augmentation options
 NOAUG, NOISE  
 VAE, IK, VAE_IK  
 VAE_PHYSICAL, IK_PHYSICAL, VAE_IK_PHYSICAL  
-VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN  
+VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN
+You can skip the training of motion correction & download dataset [here](https://drive.google.com/drive/folders/1wSyJ5BhiIiBGhVcwi3mXUW7ZFqe4PyiI?usp=sharing).
 
 You can choose human motion prediction models from [RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr).  
 RNN: seq2seq, GCN: GCN, Transformer: transformer  
