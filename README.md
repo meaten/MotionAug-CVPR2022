@@ -52,19 +52,19 @@ python vae_script.py --act_class {action_class} --gpu {gpu id}
 python generate_bvh_dataset.py --aug VAE_kin --act_class {action class}
 ```
 
-- IK **with** motion correction (take several days to finish)
+- IK **with** physical correction (take several days to finish)
 ```
 python train_ik.py --act_class {act_class} --num_threads {total cpu threads to use}
 python generate_bvh_dataset.py --aug IK_phys --act_class {act_class}
 ```
 
-- VAE **with** motion correction (take several days to finish)
+- VAE **with** physical correction (take several days to finish)
 ```
 python train_vae.py --act_class {act_class} --num_threads {total cpu threads to use}
 python generate_bvh_dataset.py --aug VAE_phys --act_class {act_class}
 ```
 
-- IK&VAE **with** motion correction & motion debiasing (take several days to finish)
+- IK&VAE **with** physical correction & motion debiasing (take several days to finish, proposed method)
 ```
 python train_ik.py --act_class {act_class} --num_threads {total cpu threads to use}
 python train_vae.py --act_class {act_class} --num_threads {total cpu threads to use}
@@ -81,6 +81,7 @@ NOAUG, NOISE
 VAE, IK, VAE_IK  
 VAE_PHYSICAL, IK_PHYSICAL, VAE_IK_PHYSICAL  
 VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN  
+You can skip the training of motion correction & download dataset [here](https://drive.google.com/drive/folders/1wSyJ5BhiIiBGhVcwi3mXUW7ZFqe4PyiI?usp=sharing).
 
 You can choose human motion prediction models from [RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr).  
 RNN: seq2seq, GCN: GCN, Transformer: transformer  
@@ -89,4 +90,4 @@ please edit **aug_mode**, **actions**, **model_types** in ```evaluate/LearnTrajD
 ```
 cd evaluate/LearnTrajDep/
 python run_train.py
-
+```
