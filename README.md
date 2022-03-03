@@ -1,7 +1,8 @@
 # Intro
 This is the official repository for the following paper:
 
-**MotionAug: Augmentation with Physical Correction for Human Motion Prediction**, CVPR2022 [Paper url to be updated]  
+**MotionAug: Augmentation with Physical Correction for Human Motion Prediction**, CVPR2022  
+[Paper url will be updated soon]  
 
 ![output](https://user-images.githubusercontent.com/32920601/156518681-54ba5a7e-2cee-461f-88ab-ba2255b8ea7e.gif)
 
