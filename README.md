@@ -1,4 +1,10 @@
-# MotionAug
+# Intro
+This is the official repository for the following paper:
+
+**MotionAug: Augmentation with Physical Correction for Human Motion Prediction**, CVPR2022  
+[Paper url to be updated]  
+
+![output](https://user-images.githubusercontent.com/32920601/156518681-54ba5a7e-2cee-461f-88ab-ba2255b8ea7e.gif)
 
 # Prerequisites
 ```
@@ -35,31 +41,39 @@ pip install -r requirements.txt
 ```
 bash prepare_data.sh
 ```
-This command will unzip, align Left/Right, split HDM05 motion dataset, convert Npz format.
+This command will unzip HDM05 motion dataset, align Left/Right of motions, split to each motion clups, and convert motions into Npz format.
 
-# Augmentation
-Currently, we support following action classes  
-kick, punch, walk, jog, sneak, grab, deposit, throw
+# Augmentations
+Currently, we support following action classes
+<p align="center">
+  {kick, punch, walk, jog, sneak, grab, deposit, throw}
+</p>
+
+You can skip this augmentation steps. download datasets from [here](https://drive.google.com/drive/folders/1wSyJ5BhiIiBGhVcwi3mXUW7ZFqe4PyiI?usp=sharing).
+
 
 - IK **without** motion correction
 ```
 python generate_bvh_dataset.py --aug IK_kin --act_class {action class}
 ```
+  
 
 - VAE **without** motion correction
 ```
 python vae_script.py --act_class {action_class} --gpu {gpu id}
 python generate_bvh_dataset.py --aug VAE_kin --act_class {action class}
 ```
-
+  
+  
 - IK **with** physical correction (take several days to finish)
 ```
 python train_ik.py --act_class {act_class} --num_threads {total cpu threads to use}
 python generate_bvh_dataset.py --aug IK_phys --act_class {act_class}
 ```
-
+  
 - VAE **with** physical correction (take several days to finish)
 ```
+python vae_script.py --act_class {action_class} --gpu {gpu id}
 python train_vae.py --act_class {act_class} --num_threads {total cpu threads to use}
 python generate_bvh_dataset.py --aug VAE_phys --act_class {act_class}
 ```
@@ -67,6 +81,7 @@ python generate_bvh_dataset.py --aug VAE_phys --act_class {act_class}
 - IK&VAE **with** physical correction & motion debiasing (take several days to finish, proposed method)
 ```
 python train_ik.py --act_class {act_class} --num_threads {total cpu threads to use}
+python vae_script.py --act_class {action_class} --gpu {gpu id}
 python train_vae.py --act_class {act_class} --num_threads {total cpu threads to use}
 python generate_bvh_dataset.py --aug VAE_phys --act_class {act_class}
 python generate_bvh_dataset.py --aug IK_phys --act_class {act_class}
@@ -77,11 +92,12 @@ python debias.py --debiaser_type NN --phys_data_npz ../dataset/dataset_Fixed_phy
 ```
 # Evaluation
 So far, we prepared following augmentation options  
-NOAUG, NOISE  
-VAE, IK, VAE_IK  
-VAE_PHYSICAL, IK_PHYSICAL, VAE_IK_PHYSICAL  
-VAE_PHYSICAL_OFFSET_NN, IK_PHYSICAL_OFFSET_NN, VAE_IK_PHYSICAL_OFFSET_NN  
-You can skip the training of motion correction & download dataset [here](https://drive.google.com/drive/folders/1wSyJ5BhiIiBGhVcwi3mXUW7ZFqe4PyiI?usp=sharing).
+
+  **NOAUG**, **NOISE**  # previous methods  
+  **VAE**, **IK**, **VAE_IK**  # augmentation without motion correction  
+  **VAE_PHYSICAL**, **IK_PHYSICAL**, **VAE_IK_PHYSICAL**  # augmentation with physical correction  
+  **VAE_PHYSICAL_OFFSET_NN**, **IK_PHYSICAL_OFFSET_NN**,  
+  **VAE_IK_PHYSICAL_OFFSET_NN**  # augmentation with physical correction & motion debiasing  
 
 You can choose human motion prediction models from [RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr).  
 RNN: seq2seq, GCN: GCN, Transformer: transformer  
