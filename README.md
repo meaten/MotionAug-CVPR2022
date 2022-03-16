@@ -108,7 +108,7 @@ cd evaluate/LearnTrajDep/
 python run_train.py
 ```
 
-#Acknowledgement
+# Acknowledgement
 This work is based on the [DeepMimic](https://xbpeng.github.io/projects/DeepMimic/index.html) that enabled the phsically simulated character to mimic various moitons.  
 We very appreciate their hard work and great research perspective.  
 We included the human motion prediction model ([RNN](https://github.com/enriccorona/human-motion-prediction-pytorch), [GCN](https://github.com/wei-mao-2019/LearnTrajDep), [Transformer](https://github.com/idiap/potr)).  
