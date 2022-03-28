@@ -22,7 +22,7 @@ glew
 swig
 MPI
 ```
-For ```BulletPhysics``` installation, do not forget the option ```USE_DOUBLE_PRECISION=OFF```.  
+For ```BulletPhysics``` installation, do not forget the option ```-DUSE_DOUBLE_PRECISION=OFF``` in ```build_cmake_pybullet_double.sh```.  
 Edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
 
