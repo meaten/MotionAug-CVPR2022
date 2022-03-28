@@ -26,6 +26,12 @@ For ```BulletPhysics``` installation, do not forget the option ```-DUSE_DOUBLE_P
 If the installation of ```BulletPhysics``` is failed from source, you can try ```sudo apt install libbullet-dev```.
 Edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
+- JAVA installation
+We also use [caliko](https://github.com/FedUni/caliko) IK library which include FABRIK algorithm.  
+To install java ```sudo apt install default-jre```.  
+JAVA library refers ```$JAVA_HOME```.  
+Please specify it (In my case, ```export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64/```)  
+
 
 - To compile the simulation environment
 ```
