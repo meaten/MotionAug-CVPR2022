@@ -23,6 +23,7 @@ swig
 MPI
 ```
 For ```BulletPhysics``` installation, do not forget the option ```-DUSE_DOUBLE_PRECISION=OFF``` in ```build_cmake_pybullet_double.sh```.  
+If the installation of ```BulletPhysics``` is failed from source, you can try ```sudo apt install libbullet-dev```.
 Edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
 
