@@ -31,9 +31,10 @@ def main():
     
     # discard argparser change and build arg_parser again in DeepMimic_Optimizer.py
     Logger.print('Running with {:d} workers'.format(num_workers))
+    env = os.environ.copy()
     cmd = 'mpiexec -n {:d} --timeout {:d} python DeepMimic_Optimizer.py '.format(num_workers, timeout)
     cmd += ' '.join(args)
-    subprocess.run(cmd, shell=True)
+    subprocess.run(cmd, shell=True, env=env)
     return
 
 

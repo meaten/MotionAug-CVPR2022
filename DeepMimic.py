@@ -122,7 +122,7 @@ def update_world(world, time_elapsed):
                 break
         else:
             if world.arg_parser.parse_bool('write_bvh'):
-                reward_threshold = 1.1  # just fails to count up
+                reward_threshold = 1.1  # fails to count up
                 write_bvh(world, reward_threshold=reward_threshold)
             world.reset()
             break

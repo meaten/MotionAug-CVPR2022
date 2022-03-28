@@ -19,7 +19,7 @@ def parse_args():
 
 def cmd_bvh_kin(args):
     cmds = []
-    output_path = f"models/{args.aug}_{args.act_class}_cluster"
+    output_path = f"models/{args.aug}_{args.act_class}"
     
     base_cmd = ["python3", "mpi_run.py",
                 "--default_params_file", "args/default_record_kin.txt",
