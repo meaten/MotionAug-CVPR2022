@@ -27,7 +27,7 @@ If the installation of ```BulletPhysics``` is failed from source, you can try ``
 Edit the ```DeepMimicCore/Makefile``` to specify path to libraries.
 
 - JAVA installation
-We also use [caliko](https://github.com/FedUni/caliko) IK library which include FABRIK algorithm.  
+We also use [caliko](https://github.com/FedUni/caliko) IK library which implement FABRIK algorithm.  
 The IK package for the CMUMocap bone is included in /lib/caliko. 
 To install java ```sudo apt install default-jre```.  
 JAVA library refers ```$JAVA_HOME```. Please specify it.  
